@@ -145,6 +145,8 @@ function callSendAPI(sender_psid, response) {
         "json": request_body
     }, (err, res, body) => {
         if (!err) {
+            console.log(`Message sent! Status Code: ${res.statusCode}`);
+            console.log("Response body:", body);
             console.log('message sent!')
         } else {
             console.error("Unable to send message:" + err);
