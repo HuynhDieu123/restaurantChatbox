@@ -159,8 +159,8 @@ function callSendAPI(sender_psid, response) {
 let setupProfile = (req, res) => {
     //call profile facebook api
     let request_body = {
-        "get_started": "GET_STARTED",
-        "whitelisted_domains": "https://restaurantchatbox.onrender.com/"
+        "get_started": { "payload": "GET_STARTED" },
+        "whitelisted_domains": ["https://restaurantchatbox.onrender.com/"]
     }
     //template string
 
