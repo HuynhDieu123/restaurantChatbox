@@ -3,7 +3,9 @@ import request from "request"
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = 'http://bit.ly/dieu-bot1';
-
+const IMAGE_MAIN_MENU_2 = 'http://bit.ly/eric-bot-2';
+const IMAGE_MAIN_MENU_3 = 'http://bit.ly/eric-bot-3';
+const IMAGE_MAIN_MENU_4 = 'http://bit.ly/eric-bot-4';
 
 let callSendAPI = (response, sender_psid) => {
     // Construct the message body
@@ -130,7 +132,7 @@ let getMainMenuTemplate = () => {
                     {
                         "title": "Menu của nhà hàng",
                         "subtitle": "Chúng tôi hân hạnh mang đến cho bạn thực đơn phong phú cho bữa trưa hoặc bữa tối",
-                        "image_url": IMAGE_GET_STARTED,
+                        "image_url": IMAGE_MAIN_MENU_2,
                         "buttons": [
                             {
                                 "type": "postback",
@@ -147,7 +149,7 @@ let getMainMenuTemplate = () => {
                     {
                         "title": "Giờ mở cửa",
                         "subtitle": "T2-T6 10AM - 11PM | T7 5PM - 10PM | CN 5PM - 9PM",
-                        "image_url": IMAGE_GET_STARTED,
+                        "image_url": IMAGE_MAIN_MENU_3,
                         "buttons": [
                             {
                                 "type": "postback",
@@ -159,7 +161,7 @@ let getMainMenuTemplate = () => {
                     {
                         "title": "Không gian nhà hàng",
                         "subtitle": "Nhà hàng có sức chứa lên đến 300 khách hàng và phục vụ bữa tiệc lớn",
-                        "image_url": IMAGE_GET_STARTED,
+                        "image_url": IMAGE_MAIN_MENU_4,
                         "buttons": [
                             {
                                 "type": "postback",
