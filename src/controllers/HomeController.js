@@ -213,8 +213,8 @@ let setupPersistentMenu = async (req, res) => {
                         "webview_height_ratio": "full"
                     },
                     {
-                        "type": "web_url",
-                        "title": "Khởi dộng lại bot",
+                        "type": "postback",
+                        "title": "Khởi động lại bot",
                         "payload": "RESTART_BOT"
                     }
                 ]
