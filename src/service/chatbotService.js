@@ -205,7 +205,7 @@ let getLunchMenuTemplate = () => {
                     {
                         "title": "Món tráng miệng",
                         "subtitle": "Nhà hàng có nhiều món tráng miệng hấp dẫn",
-                        "image_url": IMAGE_MAIN_MENU_2,
+                        "image_url": IMAGE_VIEW_APPETIZERS,
                         "buttons": [
                             {
                                 "type": "postback",
@@ -217,7 +217,7 @@ let getLunchMenuTemplate = () => {
                     {
                         "title": "Cá",
                         "subtitle": "Thủy sản và hải sản",
-                        "image_url": IMAGE_MAIN_MENU_3,
+                        "image_url": IMAGE_VIEW_FISH,
                         "buttons": [
                             {
                                 "type": "postback",
@@ -229,7 +229,7 @@ let getLunchMenuTemplate = () => {
                     {
                         "title": "Thịt hun khói",
                         "subtitle": "Chất lượng hàng đầu",
-                        "image_url": IMAGE_MAIN_MENU_4,
+                        "image_url": IMAGE_VIEW_MEAT,
                         "buttons": [
                             {
                                 "type": "postback",
