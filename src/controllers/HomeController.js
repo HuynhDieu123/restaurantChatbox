@@ -128,6 +128,7 @@ async function handlePostback(sender_psid, received_postback) {
         case 'no':
             response = { "text": "Oops, try sending another image." }
             break;
+        case 'RESTART_BOT':
         case 'GET_STARTED':
             await chatbotService.handleGetStarted(sender_psid);
             break;
@@ -192,9 +193,57 @@ let setupProfile = async (req, res) => {
     return res.send("Setup user profile succeeds!")
 }
 
+let setupPersistentMenu = async (req, res) => {
+    let request_body = {
+        "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "type": "web_url",
+                        "title": "Youtube channel ",
+                        "url": "https://www.youtube.com/@hoidanit",
+                        "webview_height_ratio": "full"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Facebook Huỳnh Điều",
+                        "url": "https://facebook.com/profile.php?id=100053106712344",
+                        "webview_height_ratio": "full"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Khởi dộng lại bot",
+                        "payload": "RESTART_BOT"
+                    }
+                ]
+            }
+        ]
+    }
+
+    // Send the HTTP request to the Messenger Platform
+    await request({
+        "uri": `https://graph.facebook.com/v21.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+        "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+            console.log('Setup persistent menu succeeds')
+        } else {
+            console.error("Unable to setup:" + err);
+        }
+    });
+
+    return res.send("Setup persistent menu succeeds!")
+
+}
+
 module.exports = {
     getHomepage: getHomepage,
     postWebhook: postWebhook,
     getWebhook: getWebhook,
-    setupProfile: setupProfile
+    setupProfile: setupProfile,
+    setupPersistentMenu: setupPersistentMenu
 }

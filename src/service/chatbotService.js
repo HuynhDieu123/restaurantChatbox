@@ -78,7 +78,7 @@ let sendGetStartedTemplate = () => {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Xin chào bạn đến với nhà hàng của Điều",
+                    "title": "Nhà hàng Điều kính chào quý khách",
                     "subtitle": "Dưới đây là các lựa chọn của nhà hàng.",
                     "image_url": IMAGE_GET_STARTED,
                     "buttons": [
