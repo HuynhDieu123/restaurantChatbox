@@ -9,6 +9,7 @@ const IMAGE_MAIN_MENU_4 = 'http://bit.ly/eric-bot-4';
 const IMAGE_VIEW_APPETIZERS = 'http://bit.ly/eric-bot-5';
 const IMAGE_VIEW_FISH = 'http://bit.ly/eric-bot-6';
 const IMAGE_VIEW_MEAT = 'http://bit.ly/eric-bot-7';
+const IMAGE_BACK_MAIN_MENU = 'http://bit.ly/eric-bot-8';
 
 let callSendAPI = (response, sender_psid) => {
     // Construct the message body
@@ -237,7 +238,20 @@ let getLunchMenuTemplate = () => {
                                 "payload": "VIEW_MEAT",
                             }
                         ],
+                    },
+                    {
+                        "title": "Quay trở lại",
+                        "subtitle": "Quay trở lại Menu chính",
+                        "image_url": IMAGE_BACK_MAIN_MENU,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "QUAY TRỞ LẠI",
+                                "payload": "BACK_TO_MAIN_MENU",
+                            }
+                        ],
                     }
+
                 ]
             }
         }
