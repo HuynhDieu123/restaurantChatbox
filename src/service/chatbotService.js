@@ -331,9 +331,14 @@ let getDinnerMenuTemplate = () => {
 
 }
 
+let hanleBackToMenu = async (sender_psid) => {
+    await handleSendMainMenu(sender_psid);
+}
+
 module.exports = {
     handleGetStarted: handleGetStarted,
     handleSendMainMenu: handleSendMainMenu,
     handleSendLunchMenu: handleSendLunchMenu,
-    handleSendDinnerMenu: handleSendDinnerMenu
+    handleSendDinnerMenu: handleSendDinnerMenu,
+    hanleBackToMenu: hanleBackToMenu
 }
