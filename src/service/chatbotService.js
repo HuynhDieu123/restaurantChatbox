@@ -336,7 +336,6 @@ let handleSendDinnerMenu = (sender_psid) => {
 }
 
 let getDinnerMenuTemplate = () => {
-
     let response = {
         "attachment": {
             "type": "template",
@@ -344,46 +343,54 @@ let getDinnerMenuTemplate = () => {
                 "template_type": "generic",
                 "elements": [
                     {
-                        "title": "Menu của nhà hàng",
-                        "subtitle": "Chúng tôi hân hạnh mang đến cho bạn thực đơn phong phú cho bữa trưa hoặc bữa tối",
-                        "image_url": IMAGE_MAIN_MENU_2,
+                        "title": "Món tráng miệng",
+                        "subtitle": "Nhà hàng có nhiều món tráng miệng hấp dẫn",
+                        "image_url": IMAGE_VIEW_APPETIZERS,
                         "buttons": [
                             {
                                 "type": "postback",
-                                "title": "BỮA TRƯA",
-                                "payload": "LUNCH_MENU",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "BỮA TỐI",
-                                "payload": "DINNER_MENU",
+                                "title": "XEM CHI TIẾT",
+                                "payload": "VIEW_APPETIZERS",
                             }
                         ],
                     },
                     {
-                        "title": "Giờ mở cửa",
-                        "subtitle": "T2-T6 10AM - 11PM | T7 5PM - 10PM | CN 5PM - 9PM",
-                        "image_url": IMAGE_MAIN_MENU_3,
+                        "title": "Cá",
+                        "subtitle": "Thủy sản và hải sản",
+                        "image_url": IMAGE_VIEW_FISH,
                         "buttons": [
                             {
                                 "type": "postback",
-                                "title": "ĐẶT BÀN",
-                                "payload": "RESERVE_TABLE",
+                                "title": "XEM CHI TIẾT",
+                                "payload": "VIEW_FISH",
                             }
                         ],
                     },
                     {
-                        "title": "Không gian nhà hàng",
-                        "subtitle": "Nhà hàng có sức chứa lên đến 300 khách hàng và phục vụ bữa tiệc lớn",
-                        "image_url": IMAGE_MAIN_MENU_4,
+                        "title": "Thịt hun khói",
+                        "subtitle": "Chất lượng hàng đầu",
+                        "image_url": IMAGE_VIEW_MEAT,
                         "buttons": [
                             {
                                 "type": "postback",
-                                "title": "CHI TIẾT",
-                                "payload": "SHOW_ROOMS",
+                                "title": "XEM CHI TIẾT",
+                                "payload": "VIEW_MEAT",
+                            }
+                        ],
+                    },
+                    {
+                        "title": "Quay trở lại",
+                        "subtitle": "Quay trở lại Menu chính",
+                        "image_url": IMAGE_BACK_MAIN_MENU,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "QUAY TRỞ LẠI",
+                                "payload": "BACK_TO_MAIN_MENU",
                             }
                         ],
                     }
+
                 ]
             }
         }
