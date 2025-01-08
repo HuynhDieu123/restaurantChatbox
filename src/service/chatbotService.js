@@ -11,6 +11,18 @@ const IMAGE_VIEW_FISH = 'http://bit.ly/eric-bot-6';
 const IMAGE_VIEW_MEAT = 'http://bit.ly/eric-bot-7';
 const IMAGE_BACK_MAIN_MENU = 'http://bit.ly/eric-bot-8';
 
+const IMAGE_DETAIL_APPERTIZER_1 = 'http://bit.ly/eric-bot-9';
+const IMAGE_DETAIL_APPERTIZER_2 = 'http://bit.ly/eric-bot-10';
+const IMAGE_DETAIL_APPERTIZER_3 = 'http://bit.ly/eric-bot-11';
+
+const IMAGE_DETAIL_FISH_1 = 'http://bit.ly/eric-bot-12';
+const IMAGE_DETAIL_FISH_2 = 'http://bit.ly/eric-bot-13';
+const IMAGE_DETAIL_FISH_3 = 'http://bit.ly/eric-bot-14';
+
+const IMAGE_DETAIL_MEAT_1 = 'http://bit.ly/eric-bot-15';
+const IMAGE_DETAIL_MEAT_2 = 'http://bit.ly/eric-bot-16';
+const IMAGE_DETAIL_MEAT_3 = 'http://bit.ly/eric-bot-17';
+
 let callSendAPI = (response, sender_psid) => {
     // Construct the message body
     let request_body = {
@@ -335,10 +347,181 @@ let hanleBackToMenu = async (sender_psid) => {
     await handleSendMainMenu(sender_psid);
 }
 
+let handleDetailViewAppetizer = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = getDetailViewAppetizerTeamplate();
+            //send text message
+            await callSendAPI(response1, sender_psid);
+
+            resolve('done');
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
+let getDetailViewAppetizerTeamplate = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Dưa hấu Vmart",
+                        "subtitle": "50.000đ/1kg",
+                        "image_url": IMAGE_DETAIL_APPERTIZER_1
+                    },
+                    {
+                        "title": "Xoài Vmart",
+                        "subtitle": "20.000đ/1kg",
+                        "image_url": IMAGE_DETAIL_APPERTIZER_2
+                    },
+                    {
+                        "title": "Ổi",
+                        "subtitle": "30.000kq/1kg",
+                        "image_url": IMAGE_DETAIL_APPERTIZER_3
+                    },
+                    {
+                        "title": "Quay trở lại",
+                        "subtitle": "Quay trở lại Main menu",
+                        "image_url": IMAGE_BACK_MAIN_MENU,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "QUAY TRỞ LẠI",
+                                "payload": "BACK_TO_MAIN_MENU",
+                            }
+                        ],
+                    }
+                ]
+            }
+        }
+    }
+    return response;
+}
+
+
+let handleDetailViewFish = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = getDetailViewFishTemplate();
+            //send text message
+            await callSendAPI(response1, sender_psid);
+
+            resolve('done');
+        } catch (e) {
+            reject(e)
+        }
+    })
+
+}
+
+let getDetailViewFishTemplate = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Cá hồi Châu Âu",
+                        "subtitle": "5.000.000đ/1kg",
+                        "image_url": IMAGE_DETAIL_FISH_1
+                    },
+                    {
+                        "title": "Cá chép",
+                        "subtitle": "300.000đ/1kg",
+                        "image_url": IMAGE_DETAIL_FISH_2
+                    },
+                    {
+                        "title": "Cá ngừ",
+                        "subtitle": "3.000.000kq/1kg",
+                        "image_url": IMAGE_DETAIL_FISH_3
+                    },
+                    {
+                        "title": "Quay trở lại",
+                        "subtitle": "Quay trở lại Main menu",
+                        "image_url": IMAGE_BACK_MAIN_MENU,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "QUAY TRỞ LẠI",
+                                "payload": "BACK_TO_MAIN_MENU",
+                            }
+                        ],
+                    }
+                ]
+            }
+        }
+    }
+    return response;
+}
+
+let handleDetailViewMeat = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = getDetailViewMeatTemplate();
+            //send text message
+            await callSendAPI(response1, sender_psid);
+
+            resolve('done');
+        } catch (e) {
+            reject(e)
+        }
+    })
+
+}
+
+let getDetailViewMeatTemplate = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Thịt lợn hun khói",
+                        "subtitle": "500.000đ/1kg",
+                        "image_url": IMAGE_DETAIL_MEAT_1
+                    },
+                    {
+                        "title": "Thịt bò Châu Mỹ",
+                        "subtitle": "200.000đ/1kg",
+                        "image_url": IMAGE_DETAIL_MEAT_2
+                    },
+                    {
+                        "title": "Thịt trâu",
+                        "subtitle": "300.000kq/1kg",
+                        "image_url": IMAGE_DETAIL_MEAT_3
+                    },
+                    {
+                        "title": "Quay trở lại",
+                        "subtitle": "Quay trở lại Main menu",
+                        "image_url": IMAGE_BACK_MAIN_MENU,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "QUAY TRỞ LẠI",
+                                "payload": "BACK_TO_MAIN_MENU",
+                            }
+                        ],
+                    }
+                ]
+            }
+        }
+    }
+    return response;
+}
+
 module.exports = {
     handleGetStarted: handleGetStarted,
     handleSendMainMenu: handleSendMainMenu,
     handleSendLunchMenu: handleSendLunchMenu,
     handleSendDinnerMenu: handleSendDinnerMenu,
-    hanleBackToMenu: hanleBackToMenu
+    hanleBackToMenu: hanleBackToMenu,
+    handleDetailViewAppetizer, handleDetailViewAppetizer,
+    handleDetailViewFish, handleDetailViewFish,
+    handleDetailViewMeat, handleDetailViewMeat
 }
