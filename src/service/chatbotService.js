@@ -35,14 +35,12 @@ let callSendAPI = async (response, sender_psid) => {
     await sendTypingOn(sender_psid)
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": "https://graph.facebook.com/v9.0/me/messages",
+        "uri": "https://graph.facebook.com/v21.0/me/messages",
         "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
-        console.log("body: ", body);
         if (!err) {
-            console.log(`Message sent! Status Code: ${res.statusCode}`);
             console.log("Response body:", body);
             console.log('message sent!')
         } else {
@@ -66,7 +64,6 @@ let sendTypingOn = (sender_psid) => {
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
-        console.log("body: ", body);
         if (!err) {
             console.log('sendTypingOn sent!')
         } else {
@@ -89,7 +86,6 @@ let sendMarkReadMessage = (sender_psid) => {
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
-        console.log("body: ", body);
         if (!err) {
             console.log('sendTypingOn sent!')
         } else {
@@ -107,7 +103,7 @@ let getUserName = (sender_psid) => {
         }, (err, res, body) => {
             if (!err) {
                 body = JSON.parse(body);
-                console.log(body);
+                //console.log(body);
                 let username = `${body.last_name} ${body.first_name}`;
                 resolve(username);
             } else {
@@ -129,7 +125,7 @@ let handleGetStarted = (sender_psid) => {
             await callSendAPI(response1, sender_psid);
 
             //send generic tamplate message
-            //await callSendAPI(response2, sender_psid)
+            await callSendAPI(response2, sender_psid)
 
             resolve('done');
         } catch (e) {
