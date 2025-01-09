@@ -124,9 +124,11 @@ async function handlePostback(sender_psid, received_postback) {
     switch (payload) {
         case 'yes':
             response = { "text": "Thanks!" }
+            callSendAPI(sender_psid, response);
             break;
         case 'no':
             response = { "text": "Oops, try sending another image." }
+            callSendAPI(sender_psid, response);
             break;
         case 'RESTART_BOT':
         case 'GET_STARTED':
@@ -153,12 +155,14 @@ async function handlePostback(sender_psid, received_postback) {
         case 'BACK_TO_MAIN_MENU':
             await chatbotService.hanleBackToMenu(sender_psid);
             break;
+        case 'SHOW_ROOMS':
+            await chatbotService.handleShowDetailRooms(sender_psid);
+            break;
         default:
             response = { "text": `oop! I don't know response with postback ${payload}` }
     }
 
     // Send the message to acknowledge the postback
-    //callSendAPI(sender_psid, response);
 
 }
 
