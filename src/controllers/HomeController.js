@@ -158,7 +158,7 @@ async function handlePostback(sender_psid, received_postback) {
     }
 
     // Send the message to acknowledge the postback
-    callSendAPI(sender_psid, response);
+    //callSendAPI(sender_psid, response);
 
 }
 
