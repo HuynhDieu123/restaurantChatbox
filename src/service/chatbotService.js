@@ -80,7 +80,7 @@ let sendMarkReadMessage = (sender_psid) => {
         "recipient": {
             "id": sender_psid
         },
-        "sender_action": "markm_seen"
+        "sender_action": "mark_seen"
     }
     // Send the HTTP request to the Messenger Platform
     request({
