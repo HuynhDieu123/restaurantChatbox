@@ -129,7 +129,7 @@ let handleGetStarted = (sender_psid) => {
             await callSendAPI(response1, sender_psid);
 
             //send generic tamplate message
-            await callSendAPI(response2, sender_psid)
+            //await callSendAPI(response2, sender_psid)
 
             resolve('done');
         } catch (e) {
